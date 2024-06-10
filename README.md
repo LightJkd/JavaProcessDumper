@@ -32,37 +32,57 @@ target\release\JavaProcessDumper.exe
 ### MacOS
 1. **Install Rust:**
 Open a terminal and install Rust using Homebrew:
-
+```
 brew install rustup
 rustup-init
 
+```
+
 2. **Build the Program:**
 Clone the repository and build the program:
-
+```
 git clone https://github.com/LightJkd/JavaProcessDumper.git
+
+```
+```
 cd JavaProcessDumper
+
+```
+```
 cargo build --release
 
+```
+
 3.  **Run the Program:**
+```
 ./target/release/JavaProcessDumper
+
+```
 
 ### Linux
 
 1. **Install Rust:**
 Open a terminal and install Rust:
-
+```
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
 
+```
+
 2. **Build the Program:**
 Clone the repository and build the program:
-
+```
 git clone https://github.com/LightJkd/JavaProcessDumper.git
 cd JavaProcessDumper
 cargo build --release
 
+```
+
 3.  **Run the Program:**
+```
 ./target/release/JavaProcessDumper
+
+```
 
 
 ### How It Works
