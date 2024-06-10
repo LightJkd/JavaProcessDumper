@@ -30,7 +30,6 @@ cargo build --release
 3.  **Run the Program:**
 ```
 target\release\JavaProcessDumper.exe
-
 ```
 
 
@@ -54,7 +53,6 @@ cargo build --release
 3.  **Run the Program:**
 ```
 ./target/release/JavaProcessDumper
-
 ```
 
 ### Linux
@@ -79,7 +77,6 @@ cargo build --release
 3.  **Run the Program:**
 ```
 ./target/release/JavaProcessDumper
-
 ```
 
 
