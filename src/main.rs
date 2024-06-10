@@ -92,7 +92,7 @@ fn print_instructions() {
         "windows" => println!("Instructions to find PID on Windows:
 1. Open Task Manager (Ctrl + Shift + Esc).
 2. Go to the 'Details' tab.
-3. Look for 'javaw.exe' in the 'Name' column.
+3. Look for 'java.exe' or 'javaw.exe' in the 'Name' column.
 4. The corresponding PID is listed in the 'PID' column."),
         "macos" => println!("Instructions to find PID on MacOS:
 1. Open Terminal.
