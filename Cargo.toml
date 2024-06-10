@@ -1,0 +1,8 @@
+[package]
+name = "JavaProcessDumper"
+version = "0.1.0"
+authors = ["Discord: "litestorm3465_21423" vk: <https://vk.com/id865616208>"]
+edition = "2024"
+
+[dependencies]
+whoami = "0.8.2"
