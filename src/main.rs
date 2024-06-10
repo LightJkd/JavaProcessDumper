@@ -62,19 +62,28 @@ fn dump_classes(pid: u32) {
     let output = Command::new("jmap")
         .arg("-histo")
         .arg(pid.to_string())
-        .output()
-        .expect("Failed to execute jmap command");
+        .output();
 
-    if output.status.success() {
-        let histo_output = String::from_utf8_lossy(&output.stdout);
-        let mut file = File::create(&dump_file_path).expect("Failed to create file");
-        writeln!(file, "{}", histo_output).expect("Failed to write to file");
+    match output {
+        Ok(output) => {
+            if output.status.success() {
+                let histo_output = String::from_utf8_lossy(&output.stdout);
+                let mut file = File::create(&dump_file_path).expect("Failed to create file");
+                writeln!(file, "{}", histo_output).expect("Failed to write to file");
 
-        println!("Class histogram successfully saved to dump_java.txt");
-        let path = PathBuf::from(&dump_file_path);
-        println!("File available at: {:?}", path);
-    } else {
-        println!("Failed to dump Java process memory");
+                println!("Class histogram successfully saved to dump_java.txt");
+                let path = PathBuf::from(&dump_file_path);
+                println!("File available at: {:?}", path);
+            } else {
+                eprintln!("Failed to dump Java process memory");
+            }
+        }
+        Err(e) => {
+            eprintln!("Failed to execute jmap command: {}", e);
+            if e.kind() == std::io::ErrorKind::NotFound {
+                eprintln!("Please ensure that jmap is installed and added to your PATH");
+            }
+        }
     }
 }
 
@@ -83,17 +92,17 @@ fn print_instructions() {
         "windows" => println!("Instructions to find PID on Windows:
 1. Open Task Manager (Ctrl + Shift + Esc).
 2. Go to the 'Details' tab.
-3. Look for 'java.exe' or 'javaw.exe' in the 'Name' column.
+3. Look for 'javaw.exe' in the 'Name' column.
 4. The corresponding PID is listed in the 'PID' column."),
         "macos" => println!("Instructions to find PID on MacOS:
 1. Open Terminal.
 2. Enter the command `top`.
 3. Look for a Java process, which will be listed as 'java' or 'javaw'.
 4. The PID is listed in the leftmost column under the 'PID' heading."),
-        _ => println!("Instructions to find PID on Linux:
+        _ => println!("Instructions:
 1. Open a terminal.
 2. Enter the command `top`.
-3. Look for a Java process, which will be listed as 'java'.
+3. Look for a Java process, which will be listed as 'java' or 'javaw'.
 4. The PID is listed in the leftmost column under the 'PID' heading."),
     }
 }
