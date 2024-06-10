@@ -1,7 +1,7 @@
 use std::io::{self, Write};
 use std::process::{Command, Stdio};
 use std::fs::File;
-use std::path::{Path, PathBuf};
+use std::path::PathBuf;
 use std::env;
 
 fn main() {
@@ -16,7 +16,10 @@ fn main() {
         io::stdin().read_line(&mut choice).expect("Failed to read line");
         let choice: u32 = match choice.trim().parse() {
             Ok(num) => num,
-            Err(_) => continue,
+            Err(_) => {
+                println!("Invalid input, please enter a number.");
+                continue;
+            },
         };
 
         match choice {
@@ -48,7 +51,10 @@ fn get_pid_from_user() -> Option<u32> {
 
 fn dump_classes(pid: u32) {
     let dump_file_path = match env::consts::OS {
-        "windows" => "C:\\Users\\{}\\dump_java.txt".to_string(),
+        "windows" => {
+            let username = env::var("USERNAME").expect("Failed to get username");
+            format!("C:\\Users\\{}\\dump_java.txt", username)
+        }
         "macos" => {
             let home_dir = env::var("HOME").expect("Failed to get home directory");
             format!("{}/Desktop/dump_java.txt", home_dir)
