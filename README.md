@@ -20,19 +20,24 @@ JavaProcessDumper is a command-line tool to dump the class histogram of a runnin
 
 2. **Build the Program:**
    Open a terminal and run the following commands:
-   
+```rust
    git clone https://github.com/LightJkd/JavaProcessDumper.git
    cd JavaProcessDumper
    cargo build --release
 
+```
+
 3.  **Run the Program:**
+```
 target\release\JavaProcessDumper.exe
+
+```
 
 
 ### MacOS
 1. **Install Rust:**
 Open a terminal and install Rust using Homebrew:
-```
+```rust
 brew install rustup
 rustup-init
 
@@ -40,19 +45,12 @@ rustup-init
 
 2. **Build the Program:**
 Clone the repository and build the program:
-```
+```rust
 git clone https://github.com/LightJkd/JavaProcessDumper.git
-
-```
-```
 cd JavaProcessDumper
-
-```
-```
 cargo build --release
 
 ```
-
 3.  **Run the Program:**
 ```
 ./target/release/JavaProcessDumper
@@ -63,7 +61,7 @@ cargo build --release
 
 1. **Install Rust:**
 Open a terminal and install Rust:
-```
+```rust
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 source $HOME/.cargo/env
 
@@ -71,7 +69,7 @@ source $HOME/.cargo/env
 
 2. **Build the Program:**
 Clone the repository and build the program:
-```
+```rust
 git clone https://github.com/LightJkd/JavaProcessDumper.git
 cd JavaProcessDumper
 cargo build --release
