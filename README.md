@@ -29,11 +29,11 @@ JavaProcessDumper is a command-line tool to dump the class histogram of a runnin
    - Click "OK" to save the changes.
 
 4. **Build the Program:**
-   Open a terminal and run the following commands:
-   ```sh
-   git clone https://github.com/LightJkd/JavaProcessDumper.git
-   cd JavaProcessDumper
-   cargo build --release
+Open a terminal and run the following commands:
+```sh
+git clone https://github.com/LightJkd/JavaProcessDumper.git
+cd JavaProcessDumper
+cargo build --release
 
 ```
 
