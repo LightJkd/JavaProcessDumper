@@ -146,8 +146,3 @@ fn dump_classes(pid: u32) {
 * The `jmap` utility must be available on your system and accessible from the command line. 
 * The program currently supports dumping the class histogram for Java processes only.
 
-
-### License
-* This project is licensed under the MIT License.”
-
-
